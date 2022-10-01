@@ -1,0 +1,19 @@
+﻿@model ProductManagementSystem.Models.AllProductsView
+
+@{
+    ViewData["Title"] = "DisplayAll";
+}
+
+<h1>Products Display</h1>
+Click on a product image to view more details.
+<br />
+@foreach (Product item in Model.Products) 
+{
+    <div style="float:left; display:flex; flex-direction:column" >
+    <a asp-action="Details" asp-controller="Product" asp-route-id="@item.ID">
+        <img src="~/images/@item.Image" height="350" alt="@item.Image" style="margin:10px; border-radius:10%" />
+        <p>@item.Name</p>
+    </a>
+    </div>
+}
+<hr />
