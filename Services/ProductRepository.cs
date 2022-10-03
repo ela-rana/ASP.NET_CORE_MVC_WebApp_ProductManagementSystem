@@ -30,11 +30,6 @@ namespace ProductManagementSystem.Services
             products.Add(product);
         }
 
-        public void DeleteRecord(int? ID)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Product> GetAllProducts()
         {
             return products;
@@ -47,15 +42,32 @@ namespace ProductManagementSystem.Services
             else
                 return products.Find(x => x.ID == ID);
         }
+        
+        public void UpdateRecord(Product product)
+        {
+            Product prodToUpdate = products.Find(x=>x.ID==product.ID);
+            if(prodToUpdate != null)
+            {
+                prodToUpdate.ID = product.ID;
+                prodToUpdate.Name = product.Name;
+                prodToUpdate.Price = product.Price;
+                prodToUpdate.Image = product.Image;
+                prodToUpdate.Description = product.Description;
+            }
+        }
+
+        public void DeleteRecord(int? ID)
+        {
+            Product? p = products.Find(x=>x.ID == ID);
+            if (p != null)
+            {
+                products.Remove(p);
+            }
+        }
 
         public int MaxID()
         {
             return products.Max(x=>x.ID);
-        }
-
-        public void UpdateRecord(Product product)
-        {
-            throw new NotImplementedException();
         }
     }
 }
