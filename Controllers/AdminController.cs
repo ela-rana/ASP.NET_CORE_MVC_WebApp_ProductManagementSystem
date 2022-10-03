@@ -23,7 +23,7 @@ namespace ProductManagementSystem.Controllers
         public IActionResult AdminHome()
         {
             AllProductsView allProductsView = new AllProductsView();
-            allProductsView.Products = productRepository.GetAllProducts();
+            allProductsView.Products = productRepository.GetRecords();
             return View(allProductsView);
         }
 
@@ -42,7 +42,7 @@ namespace ProductManagementSystem.Controllers
         /// <summary>
         /// To open the Add view where a new product can be added to the inventory
         /// </summary>
-        /// <returns>open the Add product form page and passes a ViewBag with the max ID value 
+        /// <returns>open the Add product form page and passes a ViewBag with the max Id value 
         /// in our inventory to it</returns>
         [HttpGet]
         public IActionResult Add()

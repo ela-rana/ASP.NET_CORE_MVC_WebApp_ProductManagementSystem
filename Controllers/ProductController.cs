@@ -16,7 +16,7 @@ namespace ProductManagementSystem.Controllers
         public IActionResult DisplayAll()
         {
             AllProductsView allProductsView = new AllProductsView();
-            allProductsView.Products = productRepository.GetAllProducts();
+            allProductsView.Products = productRepository.GetRecords();
             return View(allProductsView);
         }
         public IActionResult Details(int? id)

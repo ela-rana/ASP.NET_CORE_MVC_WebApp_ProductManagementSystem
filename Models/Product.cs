@@ -1,13 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProductManagementSystem.Models
 {
     public class Product
     {
         [Required]
-        [Range(1, 2147483647,ErrorMessage = "Product ID value must be within 1 to 2147483647")]
-        [Display(Name="Product ID")]
-        public int ID { get; set; }
+        [Display(Name="Product Id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        public int Id { get; set; }
 
         [Required]
         [Display(Name = "Product Name")]

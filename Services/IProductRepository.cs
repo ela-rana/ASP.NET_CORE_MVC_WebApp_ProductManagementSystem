@@ -43,6 +43,6 @@ namespace ProductManagementSystem.Services
         /// to get all Product records from the database
         /// </summary>
         /// <returns>a list of all products in the database</returns>
-        List<Product> GetAllProducts();
+        List<Product> GetRecords();
     }
 }

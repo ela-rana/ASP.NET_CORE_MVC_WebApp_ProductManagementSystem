@@ -10,7 +10,7 @@ Click on a product image to view more details.
 @foreach (Product item in Model.Products) 
 {
     <div style="float:left; display:flex; flex-direction:column" >
-    <a asp-action="Details" asp-controller="Product" asp-route-id="@item.ID">
+    <a asp-action="Details" asp-controller="Product" asp-route-id="@item.Id">
         <img src="~/images/@item.Image" height="350" alt="@item.Image" style="margin:10px; border-radius:10%" />
         <p>@item.Name</p>
     </a>
