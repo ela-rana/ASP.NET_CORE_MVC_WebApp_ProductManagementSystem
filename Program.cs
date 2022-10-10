@@ -16,7 +16,15 @@ builder.Services.AddDbContext<ProductContext>(options=>options.UseSqlServer(
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Home/ErrorDevelopment");
+}
+else if (app.Environment.IsProduction())
+{
+    app.UseExceptionHandler("/Home/ErrorProduction");
+}
+else
 {
     app.UseExceptionHandler("/Home/Error");
 }
